@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_macos.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tnantaki <tnantaki@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/12 00:07:56 by tnantaki          #+#    #+#             */
+/*   Updated: 2023/03/12 00:07:57 by tnantaki         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/solong.h"
+
+void	init_window(t_param *par)
+{
+	par->mlx = mlx_init();
+	if (par->mlx == NULL)
+		exit(1);
+	par->win = mlx_new_window(par->mlx, par->map.width * IMG_PIX,
+			par->map.height * IMG_PIX, "Solong");
+	if (par->win == NULL)
+	{
+		free(par->mlx);
+		exit(1);
+	}
+}
+
+int	close_win(t_param *par)
+{
+	ft_double_free(par->map.cor);
+	mlx_destroy_image(par->mlx, par->img.player);
+	mlx_destroy_image(par->mlx, par->img.wall);
+	mlx_destroy_image(par->mlx, par->img.space);
+	mlx_destroy_image(par->mlx, par->img.collec);
+	mlx_destroy_image(par->mlx, par->img.o_exit);
+	mlx_destroy_image(par->mlx, par->img.c_exit);
+	mlx_destroy_image(par->mlx, par->img.ply_dor);
+	mlx_destroy_window(par->mlx, par->win);
+	free(par->mlx);
+	exit (0);
+	return (0);
+}
