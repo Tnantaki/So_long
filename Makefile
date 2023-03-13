@@ -36,9 +36,9 @@ SRCS	=	$(addprefix $(MANDA_PATH), $(MANDA_SRCS))\
 			$(addprefix $(LIBFT_PATH), $(LIBFT_SRCS))\
 			$(addprefix $(GNL_PATH), $(GNL_SRCS))
 
-### Rule ###
-OBJS = $(SRCS:.c=.o)
+OBJS	=	$(SRCS:.c=.o)
 
+### Rule ###
 %.o:%.c
 	$(CC) $(C_FLAGS) $(MLX_HEAD) -c $< -o $@
 
