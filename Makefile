@@ -1,14 +1,14 @@
 ### Executable ###
-NAME	= solong
+NAME	= so_long
 
 ### Directory ###
 LIBFT_PATH	= libft/
 GNL_PATH	= get_next_line/
 MANDA_PATH	= mandatory/
-BONUS_PATH	= 
+BONUS_PATH	=
 
 ### Source Files ###
-LIBFT_SRCS	= ft_strlen.c ft_strdup.c ft_putstr_fd.c ft_putnbr_fd.c ft_itoa.c 
+LIBFT_SRCS	= ft_strlen.c ft_strdup.c ft_putstr_fd.c ft_putnbr_fd.c ft_itoa.c
 
 GNL_SRCS	= get_next_line.c get_next_line_utils.c
 

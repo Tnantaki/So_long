@@ -30,13 +30,21 @@
 //image resolution
 # define IMG_PIX 128
 //image path
-# define IMG_O_EXT "image/exit/open_door0.xpm"
-# define IMG_C_EXT "image/exit/close_door0.xpm"
-# define IMG_PLY_DOR "image/player/cat_on_door0.xpm"
-# define IMG_PLY "image/player/cat_on_grass0.xpm"
-# define IMG_SPC "image/space/grass0.xpm"
-# define IMG_WAL "image/wall/wall0.xpm"
-# define IMG_COL "image/collectible/fish_on_grass0.xpm"
+# define IMG_O_EXT "textures/exit/open_door0.xpm"
+# define IMG_C_EXT "textures/exit/close_door0.xpm"
+# define IMG_PLY_DOR "textures/player/cat_on_door0.xpm"
+# define IMG_PLY "textures/player/cat_on_grass0.xpm"
+# define IMG_SPC "textures/space/grass0.xpm"
+# define IMG_WAL "textures/wall/wall0.xpm"
+# define IMG_COL "textures/collectible/fish_on_grass0.xpm"
+//error message
+# define ERR_ARG "The Program take only one map file argument.\n"
+# define ERR_FLE "Filename extension of map must be \".ber\".\n"
+# define ERR_MAP_OPN "Can't open map file.\n"
+# define ERR_MAP_REC "The map must be rectangular.\n"
+# define ERR_MAP_WAL "The map must be closed/surounding by walls.\n"
+# define ERR_MAP_COM "The map must contain 1 player, 1 exit, 1 collectible.\n"
+# define ERR_MAP_PATH "It's not valid path in the map\n"
 
 //flood fill
 typedef struct s_point
