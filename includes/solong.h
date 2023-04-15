@@ -13,9 +13,9 @@
 #ifndef SOLONG_H
 # define SOLONG_H
 
-# include "../mlx_linux/mlx.h"
-# include "../libft/libft.h"
-# include "../get_next_line/get_next_line.h"
+# include "mlx.h"
+# include "libft.h"
+# include "get_next_line.h"
 
 # include <stdio.h>
 # include <stdlib.h>

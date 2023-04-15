@@ -2,20 +2,23 @@
 NAME	= so_long
 
 ### Directory ###
-LIBFT_PATH	= libft/
-GNL_PATH	= get_next_line/
+LIBFT_DIR	= libft/
+GNL_DIR		= get_next_line/
 MANDA_PATH	= mandatory/
 BONUS_PATH	=
-
-### Source Files ###
-LIBFT_SRCS	= ft_strlen.c ft_strdup.c ft_putstr_fd.c ft_putnbr_fd.c ft_itoa.c
-
-GNL_SRCS	= get_next_line.c get_next_line_utils.c
 
 ### Compilation ###
 CC		= gcc
 RM		= rm -f
 C_FLAGS	= -Wall -Wextra -Werror
+
+### Libft Flags ###
+FT_FLAGS	= -Llibft -lft
+FT_HEAD		= -Ilibft
+
+### GNL Flags ###
+GNL_FLAGS	= -Lget_next_line -lgnl
+GNL_HEAD	= -Iget_next_line
 
 ### OS Flags ###
 UNAME = $(shell uname -s)
@@ -31,24 +34,27 @@ else
 	MLX_HEAD	= -Imlx_mac
 endif
 
-### Mandatory Source Files ###
-SRCS	=	$(addprefix $(MANDA_PATH), $(MANDA_SRCS))\
-			$(addprefix $(LIBFT_PATH), $(LIBFT_SRCS))\
-			$(addprefix $(GNL_PATH), $(GNL_SRCS))
+### Source Files ###
+SRCS	=	$(addprefix $(MANDA_PATH), $(MANDA_SRCS))
 
+### Object Files ###
 OBJS	=	$(SRCS:.c=.o)
 
 ### Rule ###
 %.o:%.c
-	$(CC) $(C_FLAGS) $(MLX_HEAD) -c $< -o $@
+	$(CC) $(C_FLAGS) $(MLX_HEAD) $(FT_HEAD) $(GNL_HEAD) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	@make -C $(LIBFT_DIR)
+	@make -C $(GNL_DIR)
 	@make -C $(MLX_DIR)
-	$(CC) $(C_FLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME)
+	$(CC) $(C_FLAGS) $(OBJS) $(MLX_FLAGS) $(FT_FLAGS) $(GNL_FLAGS) -o $(NAME)
 
 clean:
+	@make fclean -C $(LIBFT_DIR)
+	@make fclean -C $(GNL_DIR)
 	@make clean -C $(MLX_DIR)
 	$(RM) $(OBJS)
 
