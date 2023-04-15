@@ -128,5 +128,5 @@ int	check_valid_path(t_param *par)
 	flood_fill(par->map.cor, size, par->ply, &par->obj);
 	if (par->obj.c > 0 && par->obj.e == 1)
 		return (1);
-	return (0);
+	return (ft_double_free(par->map.cor), 0);
 }

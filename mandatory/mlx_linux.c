@@ -16,11 +16,15 @@ void	init_window(t_param *par)
 {
 	par->mlx = mlx_init();
 	if (par->mlx == NULL)
+	{
+		ft_double_free(par->map.cor);
 		exit(1);
+	}
 	par->win = mlx_new_window(par->mlx, par->map.width * IMG_PIX,
 			par->map.height * IMG_PIX, "Solong");
 	if (par->win == NULL)
 	{
+		ft_double_free(par->map.cor);
 		mlx_destroy_display(par->mlx);
 		free(par->mlx);
 		exit(1);

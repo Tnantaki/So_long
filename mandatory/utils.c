@@ -45,6 +45,8 @@ int	ft_gnl_len(const char *str)
 char	**ft_free_err_doubleptr(char **ptr, int i)
 {
 	i--;
+	if (!ptr)
+		return (NULL);
 	while (i >= 0)
 	{
 		free(ptr[i]);
@@ -59,6 +61,8 @@ void	ft_double_free(char **ptr)
 	int	i;
 
 	i = 0;
+	if (!ptr)
+		return ;
 	while (ptr[i])
 	{
 		free (ptr[i]);
