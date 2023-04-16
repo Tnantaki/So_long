@@ -4,8 +4,8 @@ NAME	= so_long
 ### Directory ###
 LIBFT_DIR	= libft/
 GNL_DIR		= get_next_line/
-MANDA_PATH	= mandatory/
-BONUS_PATH	=
+MANDA_DIR	= mandatory/
+BONUS_DIR	=
 
 ### Compilation ###
 CC		= gcc
@@ -35,7 +35,7 @@ else
 endif
 
 ### Source Files ###
-SRCS	=	$(addprefix $(MANDA_PATH), $(MANDA_SRCS))
+SRCS	=	$(addprefix $(MANDA_DIR), $(MANDA_SRCS))
 
 ### Object Files ###
 OBJS	=	$(SRCS:.c=.o)
